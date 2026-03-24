@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Instagram, MapPin, Send } from 'lucide-react';
+import { Mail, Instagram, MapPin, Send, Phone, Download } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -24,50 +24,80 @@ const Contact = () => {
             <div className="space-y-8">
               <h2 className="text-3xl font-bold uppercase italic tracking-tight">Contact Info</h2>
               <div className="space-y-6">
-                <div className="flex gap-6 items-start">
-                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0">
+                <a href="mailto:info@emilheyerdahl.com" className="flex gap-6 items-start group">
+                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-all">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs uppercase tracking-widest font-bold text-white/40 mb-1">General Enquiries</h4>
+                    <p className="text-lg font-bold italic group-hover:text-white/80 transition-colors">info@emilheyerdahl.com</p>
+                  </div>
+                </a>
+                <a href="mailto:manager@emilheyerdahl.com" className="flex gap-6 items-start group">
+                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-all">
                     <Mail size={20} />
                   </div>
                   <div>
                     <h4 className="text-xs uppercase tracking-widest font-bold text-white/40 mb-1">Management</h4>
-                    <p className="text-lg font-bold italic">management@emilheyerdahl.com</p>
+                    <p className="text-lg font-bold italic group-hover:text-white/80 transition-colors">manager@emilheyerdahl.com</p>
                   </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0">
-                    <Mail size={20} />
+                </a>
+                <a href="tel:+4793264725" className="flex gap-6 items-start group">
+                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-all">
+                    <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest font-bold text-white/40 mb-1">Press & Media</h4>
-                    <p className="text-lg font-bold italic">press@emilheyerdahl.com</p>
+                    <h4 className="text-xs uppercase tracking-widest font-bold text-white/40 mb-1">Phone</h4>
+                    <p className="text-lg font-bold italic group-hover:text-white/80 transition-colors">(+47) 932 64 725</p>
                   </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0">
+                </a>
+                <a href="https://instagram.com/emheyerdahl" target="_blank" rel="noreferrer" className="flex gap-6 items-start group">
+                  <div className="w-12 h-12 glass flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-all">
                     <Instagram size={20} />
                   </div>
                   <div>
                     <h4 className="text-xs uppercase tracking-widest font-bold text-white/40 mb-1">Social</h4>
-                    <p className="text-lg font-bold italic">@emheyerdahl</p>
+                    <p className="text-lg font-bold italic group-hover:text-white/80 transition-colors">@emheyerdahl</p>
                   </div>
-                </div>
+                </a>
                 <div className="flex gap-6 items-start">
                   <div className="w-12 h-12 glass flex items-center justify-center shrink-0">
                     <MapPin size={20} />
                   </div>
                   <div>
                     <h4 className="text-xs uppercase tracking-widest font-bold text-white/40 mb-1">Base</h4>
-                    <p className="text-lg font-bold italic">Oslo, Norway / Monaco</p>
+                    <p className="text-lg font-bold italic">Oslo, Norway</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            <a
+              href="/Career CV - E.Heyerdahl 26.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass p-8 flex items-center gap-4 hover:bg-white/10 transition-all group"
+            >
+              <Download size={20} className="text-white/40 group-hover:text-white transition-colors" />
+              <div>
+                <h4 className="text-sm font-bold uppercase italic">Download Career CV</h4>
+                <p className="text-[10px] text-white/40 uppercase tracking-widest">PDF Document</p>
+              </div>
+            </a>
 
             <div className="glass p-8">
               <h4 className="text-sm font-bold uppercase italic mb-4">Partnership Note</h4>
               <p className="text-sm text-white/40 leading-relaxed">
                 Please include your company name, objectives, and estimated timeline in your initial enquiry to help our management team process your request efficiently.
               </p>
+            </div>
+
+            <div className="aspect-video bg-white/5 overflow-hidden">
+              <img 
+                src="/PMF_0012.JPG" 
+                alt="Emil Heyerdahl racing" 
+                className="w-full h-full object-cover transition-all duration-700"
+              />
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, Twitter, Youtube } from 'lucide-react';
+import { Instagram, Mail, Phone, Download } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -12,13 +12,12 @@ const Footer = () => {
             <span className="uppercase tracking-[0.2em] text-lg font-light">Emil Heyerdahl</span>
           </Link>
           <p className="text-white/40 max-w-md text-sm leading-relaxed mb-8">
-            Professional racing driver and 2021 24H Series Champion. Combining elite motorsport performance with a powerful digital presence for global brand partnerships.
+            Professional racing driver from Norway. 2021 24H Series Champion, Norwegian Champion, youngest ever Nordic Champion. Currently competing in ADAC GT4 Germany.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Instagram size={20} /></a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Twitter size={20} /></a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Youtube size={20} /></a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Mail size={20} /></a>
+            <a href="https://instagram.com/emheyerdahl" target="_blank" rel="noreferrer" className="text-white/40 hover:text-white transition-colors"><Instagram size={20} /></a>
+            <a href="mailto:info@emilheyerdahl.com" className="text-white/40 hover:text-white transition-colors"><Mail size={20} /></a>
+            <a href="tel:+4793264725" className="text-white/40 hover:text-white transition-colors"><Phone size={20} /></a>
           </div>
         </div>
 
@@ -26,18 +25,29 @@ const Footer = () => {
           <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-8 text-white/60">Navigation</h4>
           <ul className="space-y-4">
             <li><Link to="/about" className="text-sm text-white/40 hover:text-white transition-colors">About Emil</Link></li>
-            <li><Link to="/career" className="text-sm text-white/40 hover:text-white transition-colors">Career & Results</Link></li>
+            <li><Link to="/career" className="text-sm text-white/40 hover:text-white transition-colors">Career Timeline</Link></li>
             <li><Link to="/partners" className="text-sm text-white/40 hover:text-white transition-colors">Partnerships</Link></li>
-            <li><Link to="/media" className="text-sm text-white/40 hover:text-white transition-colors">Media Kit</Link></li>
+            <li><Link to="/media" className="text-sm text-white/40 hover:text-white transition-colors">Media Hub</Link></li>
+            <li><Link to="/contact" className="text-sm text-white/40 hover:text-white transition-colors">Contact</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.3em] font-bold mb-8 text-white/60">Contact</h4>
           <ul className="space-y-4">
-            <li><a href="mailto:management@emilheyerdahl.com" className="text-sm text-white/40 hover:text-white transition-colors">Management Enquiry</a></li>
-            <li><a href="mailto:press@emilheyerdahl.com" className="text-sm text-white/40 hover:text-white transition-colors">Press & Media</a></li>
-            <li><Link to="/contact" className="text-sm text-white/40 hover:text-white transition-colors">General Contact</Link></li>
+            <li><a href="mailto:info@emilheyerdahl.com" className="text-sm text-white/40 hover:text-white transition-colors">info@emilheyerdahl.com</a></li>
+            <li><a href="mailto:manager@emilheyerdahl.com" className="text-sm text-white/40 hover:text-white transition-colors">manager@emilheyerdahl.com</a></li>
+            <li><a href="tel:+4793264725" className="text-sm text-white/40 hover:text-white transition-colors">(+47) 932 64 725</a></li>
+            <li>
+              <a 
+                href="/Career CV - E.Heyerdahl 26.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-sm text-white/40 hover:text-white transition-colors inline-flex items-center gap-2"
+              >
+                <Download size={14} /> Download CV
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -47,7 +57,7 @@ const Footer = () => {
           © 2026 Emil Heyerdahl. All Rights Reserved.
         </p>
         <p className="text-[10px] uppercase tracking-widest text-white/20">
-          Designed for Elite Performance
+          Professional Racing Driver — Norway
         </p>
       </div>
     </footer>
