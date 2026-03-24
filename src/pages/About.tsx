@@ -55,7 +55,7 @@ const About = () => {
           <div className="lg:col-span-5 space-y-8">
             <div className="aspect-[3/4] bg-white/5 overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" 
+                src="/face photo.jpg" 
                 alt="Emil Portrait" 
                 className="w-full h-full object-cover grayscale"
                 referrerPolicy="no-referrer"

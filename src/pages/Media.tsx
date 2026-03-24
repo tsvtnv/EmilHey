@@ -4,12 +4,12 @@ import { Download, ExternalLink, Image as ImageIcon, FileText } from 'lucide-rea
 
 const Media = () => {
   const images = [
-    "https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1547919307-1ecb10702e6f?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+    "/emheyerdahl_1682262665_3087365467391288919_261795159.jpg",
+    "/emheyerdahl_1683128539_3094628943276875595_261795159.jpg",
+    "/emheyerdahl_1683128539_3094628943276956701_261795159.jpg",
+    "/emheyerdahl_1641923975_2748980004882473700_261795159.jpg",
+    "/emheyerdahl_1641923975_2748980004890676523_261795159.jpg",
+    "/emheyerdahl_1641923975_2748980004915808635_261795159.jpg"
   ];
 
   return (

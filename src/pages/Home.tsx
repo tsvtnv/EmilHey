@@ -11,7 +11,7 @@ const Home = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&q=80&w=2000" 
+            src="/emheyerdahl_1682262665_3087365467391288919_261795159.jpg" 
             alt="Racing Background" 
             className="w-full h-full object-cover opacity-60 scale-105 animate-slow-zoom"
             referrerPolicy="no-referrer"
@@ -89,7 +89,7 @@ const Home = () => {
         >
           <div className="aspect-[4/5] bg-white/5 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000" 
+              src="/face photo.jpg" 
               alt="Emil Portrait" 
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
@@ -200,18 +200,18 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4 pt-12">
               <div className="aspect-[3/4] bg-white/5 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1547919307-1ecb10702e6f?auto=format&fit=crop&q=80&w=600" alt="Racing 1" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+                <img src="/emheyerdahl_1683128539_3094628943276875595_261795159.jpg" alt="Racing 1" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
               </div>
               <div className="aspect-square bg-white/5 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=600" alt="Racing 2" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+                <img src="/emheyerdahl_1683128539_3094628943276956701_261795159.jpg" alt="Racing 2" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
               </div>
             </div>
             <div className="space-y-4">
               <div className="aspect-square bg-white/5 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=600" alt="Racing 3" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+                <img src="/emheyerdahl_1641923975_2748980004882473700_261795159.jpg" alt="Racing 3" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
               </div>
               <div className="aspect-[3/4] bg-white/5 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600" alt="Racing 4" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+                <img src="/emheyerdahl_1641923975_2748980004890676523_261795159.jpg" alt="Racing 4" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
               </div>
             </div>
           </div>
