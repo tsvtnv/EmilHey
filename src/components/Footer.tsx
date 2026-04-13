@@ -52,13 +52,23 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[10px] uppercase tracking-widest text-white/20">
-          © 2026 Emil Heyerdahl. All Rights Reserved.
-        </p>
-        <p className="text-[10px] uppercase tracking-widest text-white/20">
-          Professional Racing Driver — Norway
-        </p>
+      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col items-center gap-6">
+        <a
+          href="https://tsvweb.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lg font-semibold tracking-wide text-white/70 hover:text-white transition-colors"
+        >
+          Built by TsvWeb.com
+        </a>
+        <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4">
+          <p className="text-[10px] uppercase tracking-widest text-white/20">
+            © 2026 Emil Heyerdahl. All Rights Reserved.
+          </p>
+          <p className="text-[10px] uppercase tracking-widest text-white/20">
+            Professional Racing Driver — Norway
+          </p>
+        </div>
       </div>
     </footer>
   );
