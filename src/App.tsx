@@ -8,6 +8,7 @@ import Career from './pages/Career';
 import Partners from './pages/Partners';
 import Media from './pages/Media';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/media" element={<Media />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
