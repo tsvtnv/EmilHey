@@ -2,27 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface MonitorStatus {
-  status: 'up' | 'down' | 'degraded' | 'unknown'
-  uptime24h: number | null
+  status: 'up' | 'down' | 'unknown'
 }
 
 function VpsStatusBadge({ vpsId, label }: { vpsId: string; label: string }) {
-  const [monitor, setMonitor] = useState<MonitorStatus>({ status: 'unknown', uptime24h: null })
+  const [monitor, setMonitor] = useState<MonitorStatus>({ status: 'unknown' })
 
   useEffect(() => {
-    fetch('https://status.octelis.com/api/status', { cache: 'no-store' })
+    fetch('https://app.octelis.com/api/status/summary', { cache: 'no-store' })
       .then(r => r.json())
       .then(data => {
-        const m = (data.monitors as Array<{ id: string; name: string; status: string; uptime24h?: number | null }>)?.find(
-          m => m.id === vpsId || m.name?.toLowerCase().includes(vpsId.replace('-', ' '))
+        const key = vpsId.replace('-', '').toUpperCase()
+        const s = (data.servers as Array<{ name: string; status: string }>)?.find(
+          s => s.name.toUpperCase() === key
         )
-        if (m) setMonitor({ status: m.status as MonitorStatus['status'], uptime24h: m.uptime24h ?? null })
+        if (s) setMonitor({ status: s.status.toLowerCase() as MonitorStatus['status'] })
       })
       .catch(() => {})
   }, [vpsId])
 
-  const colorMap = { up: '#16a34a', down: '#dc2626', degraded: '#d97706', unknown: '#94a3b8' }
-  const labelMap = { up: 'Operational', down: 'Down', degraded: 'Degraded', unknown: 'Checking...' }
+  const colorMap = { up: '#16a34a', down: '#dc2626', unknown: '#94a3b8' }
+  const labelMap = { up: 'Operational', down: 'Down', unknown: 'Checking...' }
   const color = colorMap[monitor.status]
 
   return (
@@ -32,9 +32,6 @@ function VpsStatusBadge({ vpsId, label }: { vpsId: string; label: string }) {
     >
       <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: color, flexShrink: 0, display: 'inline-block' }} />
       <span style={{ color, fontWeight: 600 }}>{label} — {labelMap[monitor.status]}</span>
-      {typeof monitor.uptime24h === 'number' && (
-        <span className="text-gray-400 text-xs">{monitor.uptime24h.toFixed(2)}% uptime</span>
-      )}
     </span>
   )
 }
