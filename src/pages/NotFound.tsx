@@ -1,34 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface MonitorStatus {
-  status: 'up' | 'down' | 'degraded' | 'unknown';
-  uptime24h: number | null;
+  status: 'up' | 'down' | 'degraded' | 'unknown'
+  uptime24h: number | null
 }
 
-function Vps1StatusBadge() {
-  const [monitor, setMonitor] = useState<MonitorStatus>({ status: 'unknown', uptime24h: null });
+function VpsStatusBadge({ vpsId, label }: { vpsId: string; label: string }) {
+  const [monitor, setMonitor] = useState<MonitorStatus>({ status: 'unknown', uptime24h: null })
 
   useEffect(() => {
-    fetch('https://status.tsvweb.com/api/status', { cache: 'no-store' })
-      .then((r) => r.json())
-      .then((data) => {
-        const vps1 = (data.monitors as Array<{ id: string; name: string; status: string; uptime24h?: number | null }>)?.find(
-          (m) => m.id === 'vps-1' || m.name?.toLowerCase().includes('vps 1') || m.name?.toLowerCase().includes('vps1')
-        );
-        if (vps1) {
-          setMonitor({
-            status: vps1.status as MonitorStatus['status'],
-            uptime24h: vps1.uptime24h ?? null,
-          });
-        }
+    fetch('https://status.octelis.com/api/status', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        const m = (data.monitors as Array<{ id: string; name: string; status: string; uptime24h?: number | null }>)?.find(
+          m => m.id === vpsId || m.name?.toLowerCase().includes(vpsId.replace('-', ' '))
+        )
+        if (m) setMonitor({ status: m.status as MonitorStatus['status'], uptime24h: m.uptime24h ?? null })
       })
-      .catch(() => {});
-  }, []);
+      .catch(() => {})
+  }, [vpsId])
 
-  const colorMap = { up: '#16a34a', down: '#dc2626', degraded: '#d97706', unknown: '#94a3b8' };
-  const labelMap = { up: 'Operational', down: 'Down', degraded: 'Degraded', unknown: 'Checking…' };
-  const color = colorMap[monitor.status];
+  const colorMap = { up: '#16a34a', down: '#dc2626', degraded: '#d97706', unknown: '#94a3b8' }
+  const labelMap = { up: 'Operational', down: 'Down', degraded: 'Degraded', unknown: 'Checking...' }
+  const color = colorMap[monitor.status]
 
   return (
     <span
@@ -36,16 +31,16 @@ function Vps1StatusBadge() {
       style={{ borderColor: `${color}44`, background: `${color}11` }}
     >
       <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: color, flexShrink: 0, display: 'inline-block' }} />
-      <span style={{ color, fontWeight: 600 }}>VPS 1 — {labelMap[monitor.status]}</span>
+      <span style={{ color, fontWeight: 600 }}>{label} — {labelMap[monitor.status]}</span>
       {typeof monitor.uptime24h === 'number' && (
         <span className="text-gray-400 text-xs">{monitor.uptime24h.toFixed(2)}% uptime</span>
       )}
     </span>
-  );
+  )
 }
 
 const NotFound: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-16 text-center bg-white">
@@ -73,32 +68,45 @@ const NotFound: React.FC = () => {
 
         <div className="border-t border-gray-100 pt-8">
           <p className="text-xs text-gray-400 mb-3">Infrastructure status</p>
-          <div className="flex justify-center mb-3">
-            <Vps1StatusBadge />
+          <div className="flex flex-wrap justify-center gap-3 mb-3">
+            <VpsStatusBadge vpsId="vps-1" label="VPS 1" />
+            <VpsStatusBadge vpsId="vps-2" label="VPS 2" />
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4 text-xs">
             <a
-              href="https://status.tsvweb.com"
+              href="https://status.octelis.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              View status page →
+              View status page
             </a>
             <span className="hidden sm:inline text-gray-200">|</span>
             <a
-              href="https://status.tsvweb.com/support"
+              href="https://status.octelis.com/support"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-600 transition-colors"
             >
-              Contact technical support →
+              Contact technical support
             </a>
           </div>
         </div>
+
+        <div className="mt-8 pt-6 border-t border-gray-100">
+          <a
+            href="https://octelis.com?utm_source=client-site&utm_medium=404-page&utm_campaign=built-by&utm_content=emil-heyerdahl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <img src="https://octelis.com/octelis-logo-full-transparent.png" alt="Octelis" style={{ height: '16px', width: 'auto' }} />
+            <span className="text-xs">Built by Octelis</span>
+          </a>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

@@ -54,12 +54,17 @@ const Footer = () => {
       
       <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col items-center gap-6">
         <a
-          href="https://tsvweb.com"
+          href="https://octelis.com?utm_source=client-site&utm_medium=badge&utm_campaign=built-by&utm_content=emil-heyerdahl"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-lg font-semibold tracking-wide text-white/70 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
         >
-          Built by TsvWeb.com
+          <img
+            src="https://octelis.com/octelis-logo-full-dark-bg.png"
+            alt="Octelis"
+            style={{ height: "18px", width: "auto" }}
+          />
+          <span className="text-sm tracking-wide">Built by Octelis</span>
         </a>
         <div className="flex flex-col md:flex-row justify-between items-center w-full gap-4">
           <p className="text-[10px] uppercase tracking-widest text-white/20">
